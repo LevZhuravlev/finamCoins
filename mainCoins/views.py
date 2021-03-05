@@ -13,7 +13,7 @@ def open(request):
 
     if request.user.is_authenticated:
         context = {}
-        context['Equities'] = Equities.objects.order_by('price')
+        context['Equities'] = Equities.objects.order_by('-price')
         context['Coins'] = FinCoins.objects.get(user_name=request.user)
 
         for i in context['Equities']:
