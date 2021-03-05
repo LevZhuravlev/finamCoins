@@ -1,0 +1,20 @@
+
+{% extends 'mainCoins/base.html' %}
+
+{% block title %} Log in finCoin {% endblock %}
+
+
+{% block content %}
+
+
+<div class="form-group p-2">
+    <form id="add_form" method="post">
+        {% csrf_token %}
+        {{form}}
+        <br>
+        <button type="submit" class="btn btn-outline-primary p-2">Войти</button>
+    </form>
+</div>
+
+
+{% endblock %}
