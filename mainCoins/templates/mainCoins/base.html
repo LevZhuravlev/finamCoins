@@ -9,17 +9,27 @@
 
 
 <div class="m-1">
-    <h1> FinamCoins </h1>
-    <p> {{ request.user }}</p>
+    <div class="row">
+    <h1 class="col-2"> FinamCoins </h1>
+        <div class="col-4"></div>
+            <div class="col-6">
+                {% block messageline %} {% endblock %}
+            </div>
+    </div>
 
+
+
+    <div class="row p-2">
     {% if request.user.is_authenticated %}
 
+    <div class="p-2">
         <a href="logout">
             <button type="button" class="btn btn-outline-danger">Выход</button>
         </a>
+    </div>
 
     {% else %}
-
+    <div class="p-2">
         <a href="login">
             <button type="button" class="btn btn-outline-primary">Войти</button>
         </a>
@@ -27,15 +37,18 @@
     <a href="registration">
         <button type="button" class="btn btn-outline-secondary">Регистрация</button>
     </a>
+        </div>
 
     {% endif %}
-
+    <div class="p-2">
     <a href="admin">
         <button type="button" class="btn btn-outline-warning">Админ</button>
     </a>
-
+    </div>
+        </div>
 
 </div>
+
 {% block content %}
 
 {% endblock %}

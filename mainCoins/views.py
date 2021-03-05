@@ -4,11 +4,28 @@ from .form import AuthUserForm, RegisterUserForm
 from django.contrib.auth.models import User
 from django.views.generic import CreateView
 from django.contrib.auth import authenticate, login
+from .models import Equities, FinCoins
+from .coinLogic import coinPrice
 
 # Create your views here.
 
 def open(request):
-    return render(request, 'mainCoins/index.html')
+
+    if request.user.is_authenticated:
+        context = {}
+        context['Equities'] = Equities.objects.order_by('price')
+        context['Coins'] = FinCoins.objects.get(user_name=request.user)
+
+        for i in context['Equities']:
+            i.price = round(coinPrice(i.price))
+
+
+        return render(request, 'mainCoins/index.html', context)
+
+    else:
+        return render(request, 'mainCoins/index.html')
+
+
 
 
 class MyProjectLoginView(LoginView):

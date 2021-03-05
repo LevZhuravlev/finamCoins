@@ -1,14 +1,35 @@
 
 {% extends 'mainCoins/base.html' %}
-
 {% block title %} Welcome to finCoin {% endblock %}
 
+{% block messageline %}
+
+ {% if request.user.is_authenticated %}
+    <div class="alert alert-primary" role="alert">
+    У тебя на счету {{Coins}} finCoin'a
+    </div>
+
+
+  {% else %}
+    <div class="alert alert-info" role="alert">
+    Ведется разработка
+    </div>
+  {% endif %}
+
+{% endblock %}
 
 {% block content %}
 
 
-
-
-
+    {% if request.user.is_authenticated %}
+<div class="p-2 col-4">
+<table class="table table-striped table-sm" border = "2">
+    <tr><th >Название</th><th>Стоимость</th></tr>
+        {% for i in Equities%}
+            <tr><td>{{i.company_name}}</td><td>{{i.price}}</td></tr>
+        {% endfor %}
+    {% endif %}
+</table>
+</div>
 
 {% endblock %}
