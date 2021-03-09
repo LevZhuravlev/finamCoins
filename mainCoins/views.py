@@ -13,14 +13,19 @@ def open(request):
 
     if request.user.is_authenticated:
         context = {}
-        context['Equities'] = Equities.objects.order_by('-price')
+        context['Equities'] = Equities.objects.order_by('price')
         context['Coins'] = FinCoins.objects.get(user_name=request.user)
-
+        context['Differene'] = []
+        context['Differene_proc'] = []
+        coins = int(str(context['Coins']))
         for i in context['Equities']:
             i.price = round(coinPrice(i.price))
+            context['Differene'].append(i.price-coins)
+            context['Differene_proc'].append(str(round((coins/i.price)*100)) + '%')
 
 
-        return render(request, 'mainCoins/index.html', context)
+        fusion = zip(context['Equities'], context['Differene'], context['Differene_proc'])
+        return render(request, 'mainCoins/index.html', {'fusion': fusion, 'Coins':context['Coins']})
 
     else:
         return render(request, 'mainCoins/index.html')
