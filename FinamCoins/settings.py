@@ -126,5 +126,5 @@ DATABASES['default'].update(db_from_env)
 
 import os
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-PROJECT_ROOT = os.path.join(os.path.abspath(__file__))
-STATICFILES_DIRS = [os.path.join(PROJECT_ROOT, 'static')]
+# PROJECT_ROOT = os.path.join(os.path.abspath(__file__))
+# STATICFILES_DIRS = [os.path.join(PROJECT_ROOT, 'static')]
