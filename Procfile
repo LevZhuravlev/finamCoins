@@ -1,1 +1,1 @@
-web: gunicorn FinamCoins.wsgi --log-file--
+web: gunicorn FinamCoins.wsgi --log-file-
