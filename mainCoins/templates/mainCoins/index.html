@@ -7,9 +7,15 @@
  {% if request.user.is_authenticated %}
    <div class="primary" align="right" style="vertical-align: middle;">
         У тебя на счету <br>
+       <% if Coins > 0 %>
        <h2><span class="badge badge-primary">{{Coins}} finCoin'a
        </span>
        </h2>
+
+      <% else %>
+       пока нет finCoin'ов
+
+       <% endif %>
 
     </div>
 
