@@ -6,7 +6,8 @@
 
  {% if request.user.is_authenticated %}
    <div class="primary" align="right" style="vertical-align: middle;">
-        У тебя на счету <br>
+        Привет {{request.user}},
+        сейчас у тебя на счету
         {% if Coins == "0" %}
          пока нет finCoin'ов
         {% else %}
@@ -66,7 +67,7 @@
                 </div>
             {% else %}
                 <div class="progress-bar bg-success" style="width: {{k}}">
-                    {{j}} FinCoin's
+                    {{j}} finCoin
                  </div>
             {% endif %}
 

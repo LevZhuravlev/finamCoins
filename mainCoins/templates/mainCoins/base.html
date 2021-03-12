@@ -43,12 +43,16 @@
         </div>
 
     {% endif %}
+
+        {% if request.user.is_superuser %}
     <div class="p-2">
     <a href="admin">
         <button type="button" class="btn btn-outline-warning">Админ</button>
     </a>
     </div>
         </div>
+         {% endif %}
+
 
 </div>
 
