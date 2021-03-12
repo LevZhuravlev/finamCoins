@@ -7,15 +7,11 @@
  {% if request.user.is_authenticated %}
    <div class="primary" align="right" style="vertical-align: middle;">
         У тебя на счету <br>
-       <% if Coins > 0 %>
-       <h2><span class="badge badge-primary">{{Coins}} finCoin'a
-       </span>
-       </h2>
-
-      <% else %>
-       пока нет finCoin'ов
-
-       <% endif %>
+        {% if Coins == "0" %}
+         пока нет finCoin'ов
+        {% else %}
+            <h2><span class="badge badge-primary">{{Coins}} finCoin'a </span></h2>
+        {% endif %}
 
     </div>
 
@@ -35,14 +31,14 @@
 
 
 <div class="row mx-2">
-    <div class="col-2 mx-2">
+    <div class="col-3 mx-2">
         <p>Компания</p>
     </div>
     <div class="col-2 ">
        <p> Стоимость акций  </p>
     </div>
 
-    <div class="col-6 mx-2">
+    <div class="col-5 mx-2">
         <p>Сколько осталось до приобретения</p>
     </div>
 
@@ -53,18 +49,28 @@
 <ul class="list-group my-1">
   <li class="list-group-item d-flex justify-content-between align-items-center">
 
-    <div class="col-2 ">
+    <div class="col-3 ">
       {{i.company_name}}
     </div>
 
     <div class="col-2 mx-2">
-    <span class="badge badge-primary badge-pill">{{i.price}}</span>
+    <span class="badge badge-primary badge-pill">{{i.price}}</span> finCoin
     </div>
-     <div class="container col-8", >
+     <div class="container col-7", >
         <div class="progress">
-            <div class="progress-bar bg-success" style="width: {{k}}">
-                {{j}} FinCoin's
-            </div>
+
+
+            {% if Coins == "0" %}
+                <div class="progress-bar" style="width: 100%">
+                    {{j}} FinCoin
+                </div>
+            {% else %}
+                <div class="progress-bar bg-success" style="width: {{k}}">
+                    {{j}} FinCoin's
+                 </div>
+            {% endif %}
+
+
         </div>
     </div>
     </li>
@@ -72,9 +78,9 @@
 {% endif %}
 {% endfor %}
 
-
-
+ {% if Coins != "0" %}
     <h6 align="right">Смотреть все</h6>
+ {% endif %}
 
     {% endif %}
 </table>

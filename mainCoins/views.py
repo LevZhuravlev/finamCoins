@@ -27,9 +27,8 @@ def open(request):
             context['Differene'].append(i.price-coins)
             context['Differene_proc'].append(str(round((coins/i.price)*100)) + '%')
 
-
         fusion = zip(context['Equities'], context['Differene'], context['Differene_proc'])
-        return render(request, 'mainCoins/index.html', {'fusion': fusion, 'Coins':context['Coins']})
+        return render(request, 'mainCoins/index.html', {'fusion': fusion, 'Coins': str(context['Coins'])})
 
     else:
         return render(request, 'mainCoins/index.html')
