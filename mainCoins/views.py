@@ -18,13 +18,14 @@ def open(request):
             context['Coins'] = FinCoins.objects.get(user_name=request.user)
         except:
             context['Coins'] = 0
-            context['Differene'] = []
-            context['Differene_proc'] = []
-            coins = int(str(context['Coins']))
-            for i in context['Equities']:
-                i.price = round(coinPrice(i.price))
-                context['Differene'].append(i.price-coins)
-                context['Differene_proc'].append(str(round((coins/i.price)*100)) + '%')
+
+        context['Differene'] = []
+        context['Differene_proc'] = []
+        coins = int(str(context['Coins']))
+        for i in context['Equities']:
+            i.price = round(coinPrice(i.price))
+            context['Differene'].append(i.price-coins)
+            context['Differene_proc'].append(str(round((coins/i.price)*100)) + '%')
 
 
         fusion = zip(context['Equities'], context['Differene'], context['Differene_proc'])
