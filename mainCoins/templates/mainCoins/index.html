@@ -4,14 +4,15 @@
 
 {% block messageline %}
 
- {% if request.user.is_authenticated %}
+{% if request.user.is_authenticated %}
    <div class="primary" align="right" style="vertical-align: middle;">
-        Привет {{request.user}},
+
+       <p class="username"> {{request.user}}</p>
         сейчас у тебя на счету
         {% if Coins == "0" %}
-         пока нет finCoin'ов
+        нет finCoin'ов
         {% else %}
-            <h2><span class="badge badge-primary">{{Coins}} finCoin'a </span></h2>
+            <h2><span class="badge badge-primary">{{Coins}} FimCoin </span></h2>
         {% endif %}
 
     </div>

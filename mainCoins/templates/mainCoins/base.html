@@ -6,16 +6,25 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %}</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+    <!--Fonts-->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@1,200;1,500&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
 
+    <!-- Header -->
+<div class="Header">
 
-<div id="header2" class="p-1">
-    <div class="row">
-    <h1 class="col-2"> FinamCoins </h1>
-        <div class="col-4"></div>
-            <div class="col-6">
+    <h1  id="title"> <span id="titlebold">Fim</span><span id="titlelight">Coins</span> </h1>
+
+    <div class="User_info">
+            <div>
                 {% block messageline %} {% endblock %}
             </div>
     </div>
@@ -54,10 +63,10 @@
          {% endif %}
 
 
-</div>
 
 {% block content %}
 
 {% endblock %}
+
 </body>
 </html>

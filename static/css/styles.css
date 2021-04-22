@@ -1,2 +1,39 @@
+body {
+    background-color: #F7F8FC;
+    font-family: 'Mulish', sans-serif;
+    color: green;
+}
+
+
+.Header {
+    margin-left: 44px;
+    margin-right: 144px;
+    display: flex;
+}
+
+.User_info {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+
+#title {
+    font-family: 'Mulish', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 45px;
+    letter-spacing: 0.3px;
+
+}
+
+#titlebold {
+    font-family: 'Mulish', sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 45px;
+    letter-spacing: 0.3px;
+}
 
 
