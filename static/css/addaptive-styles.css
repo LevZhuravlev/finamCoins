@@ -14,6 +14,13 @@
      margin-right: 8px;
    }
 
+   .price {
+
+     margin-left: auto;
+  margin-right: 0;
+
+   }
+
 
    .little_progress {
        margin-top: -30px;
