@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 class Equities(models.Model):
     company_name = models.CharField(max_length=128)
     price = models.IntegerField()
+    company_label = models.ImageField(null=True, blank=True, upload_to="images/", verbose_name="company_logo")
 
     def __str__(self):
         return self.company_name

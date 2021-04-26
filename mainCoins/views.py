@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView, LogoutView
 from .form import AuthUserForm, RegisterUserForm
 from django.contrib.auth.models import User
@@ -31,7 +31,7 @@ def open(request):
         return render(request, 'mainCoins/index.html', {'fusion': fusion, 'Coins': str(context['Coins'])})
 
     else:
-        return render(request, 'mainCoins/index.html')
+        return redirect('/login')
 
 def equitiess(request):
 
@@ -55,15 +55,17 @@ def equitiess(request):
         return render(request, 'mainCoins/allequitiess.html', {'fusion': fusion, 'Coins': str(context['Coins'])})
 
     else:
-        return render(request, 'mainCoins/allequitiess.html')
+        return redirect('/login')
 
 
 
 
 class MyProjectLoginView(LoginView):
+
     template_name = 'mainCoins/login.html'
     form_class = AuthUserForm
     success_url = '/'
+
 
     def get_success_url(self):
         return self.success_url
@@ -84,4 +86,4 @@ class RegisterUserView(CreateView):
         return form_valid
 
 class MyProjectLogout(LogoutView):
-	next_page = '/'
+	next_page = '/login'

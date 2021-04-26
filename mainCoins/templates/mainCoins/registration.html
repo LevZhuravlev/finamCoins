@@ -6,12 +6,14 @@
 
 {% block content %}
 
-<div class="form-group p-2">
-    <form id="add_form" method="post">
+<div class="reg_box">
+    <p id="In"> Регистрация </p>
+
+    <form id="formfield" method="post">
         {% csrf_token %}
         {{form}}
         <br>
-        <button type="submit" class="btn btn-outline-primary p-2">Зарегестрироваться</button>
+        <button type="submit" class="formbuttons">Зарегестрироваться</button>
     </form>
 </div>
 

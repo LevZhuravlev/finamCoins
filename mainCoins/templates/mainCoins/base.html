@@ -8,65 +8,62 @@
     <title>{% block title %} {% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/addaptive-styles.css' %}">
 
     <!--Fonts-->
-
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@1,200;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
+    <meta name="viewport" content="width=device-width">
 </head>
 
 <body>
 
     <!-- Header -->
 <div class="Header">
+    <p  id="title">
+        <a href="/" class="notUnderlineLink">
+                 <span id="titlebold">Fim</span><span id="titlelight">Coins</span> </p>
 
-    <h1  id="title"> <span id="titlebold">Fim</span><span id="titlelight">Coins</span> </h1>
+        </a>
 
     <div class="User_info">
-            <div>
                 {% block messageline %} {% endblock %}
-            </div>
+                {% block fimcount %} {% endblock %}
+
     </div>
+
+    <div class="verticalLine"></div>
+        {% if request.user.is_authenticated %}
+    <div class="icons">
+        {% if request.user.is_superuser %}
+        <a href="admin", class="notUnderlineLink">
+            <img class ="icon"  id="notification" src="{% static 'icons/Vector.png' %}">
+        </a>
+        {% endif %}
+        <a href="logout">
+            <img class ="icon", id="logout"src="{% static 'icons/logOutIco.png' %}">
+        </a>
+
+    </div>
+{% endif %}
+
+
 
 </div>
 
     <div class="row p-2">
-    {% if request.user.is_authenticated %}
 
-    <div class="p-2">
-        <a href="logout">
-            <button type="button" class="btn btn-outline-danger">Выход</button>
-        </a>
-    </div>
 
-    {% else %}
-    <div class="p-2">
-        <a href="login">
-            <button type="button" class="btn btn-outline-primary">Войти</button>
-        </a>
-
-    <a href="registration">
-        <button type="button" class="btn btn-outline-secondary">Регистрация</button>
-    </a>
-        </div>
-
-    {% endif %}
-
-        {% if request.user.is_superuser %}
-    <div class="p-2">
-    <a href="admin">
-        <button type="button" class="btn btn-outline-warning">Админ</button>
-    </a>
-    </div>
-        </div>
-         {% endif %}
-
+{% if request.user.is_authenticated %}
+        <div class="username" id="littlescreenusername"> {{request.user}}</div>
+{% endif %}
 
 
 {% block content %}
 
-{% endblock %}
 
+
+{% endblock %}
 </body>
 </html>

@@ -7,6 +7,12 @@ class AuthUserForm(AuthenticationForm, forms.ModelForm):
         model = User
         fields = ['username', 'password']
 
+        widgets = {
+            'username': forms.TextInput(attrs={'placeholder': 'username'}),
+            'password': forms.TextInput(attrs={'placeholder': 'password'}),
+        }
+
+
 
 
 class RegisterUserForm(forms.ModelForm):

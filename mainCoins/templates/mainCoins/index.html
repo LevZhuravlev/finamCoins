@@ -1,94 +1,173 @@
 
 {% extends 'mainCoins/base.html' %}
-{% block title %} Welcome to finCoin {% endblock %}
+    {% if request.user.is_authenticated %}
+
+{% block title %} Welcome to FimCoin {% endblock %}
+{% else %}
+
+{% endif %}
+
 
 {% block messageline %}
 
-{% if request.user.is_authenticated %}
-   <div class="primary" align="right" style="vertical-align: middle;">
 
-       <p class="username"> {{request.user}}</p>
-        сейчас у тебя на счету
-        {% if Coins == "0" %}
-        нет finCoin'ов
-        {% else %}
-            <h2><span class="badge badge-primary">{{Coins}} FimCoin </span></h2>
-        {% endif %}
+<div class="primary" align="right" style="vertical-align: middle;">
 
-    </div>
-
-
-  {% else %}
-    <div class="alert alert-info" role="alert">
-    Ведется разработка
-    </div>
-  {% endif %}
-
-{% endblock %}
-
-{% block content %}
 
     {% if request.user.is_authenticated %}
-<div class="px-2">
 
+        <p class="username" id="bigscreenusername"> {{request.user}}</p>
+        <p id="messageText">у тебя на счету</p>
+    {% else %}
 
-<div class="row mx-2">
-    <div class="col-3 mx-2">
-        <p>Компания</p>
-    </div>
-    <div class="col-2 ">
-       <p> Стоимость акций  </p>
+    <div class="messageText">
+        Ведется разработка
     </div>
 
-    <div class="col-5 mx-2">
-        <p>Сколько осталось до приобретения</p>
-    </div>
+    {% endif %}
+
 
 </div>
 
+{% endblock %}
+
+{% block fimcount %}
+
+<div>
+{% if request.user.is_authenticated %}
+
+       {% if Coins == "0" %}
+        <div>
+         <h2 class="FimCoinCount"><span >0</span></h2>
+         <p class = "FimCoin">FimCoin</p>
+        </div>
+        {% endif %}
+
+        {% if Coins != "0" %}
+            <h2 class="FimCoinCount"><span >{{Coins}}</span></h2>
+            <p class = "FimCoin">FimCoin</p>
+        {% endif %}
+            {% else %}
+        {% endif %}
+
+
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block content %}
+<div class="Today_s_trends">
+
+
+
+    {% if request.user.is_authenticated %}
+        <div class="px-2">
+            <p class="Today_s_trends_block_name">
+                СТЕК АКЦИЙ
+            </p>
+
+            <p class="little_gray" style="padding-bottom: 36px;">
+                as of 25 May 2019, 09:41 PM
+            </p>
+
+            <p class="Today_s_trends_block_name_coust_text" style="
+            text-align: right;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 19px;
+            line-height: 24px;
+            margin-bottom:30px;
+            margin-top:-45px;">
+                Стоимость
+            </p>
+
+
 {% for i,j,k in fusion %}
 {% if j > 0 %}
-<ul class="list-group my-1">
-  <li class="list-group-item d-flex justify-content-between align-items-center">
 
-    <div class="col-3 ">
-      {{i.company_name}}
-    </div>
+    <div class="quitiessquitiess">
 
-    <div class="col-2 mx-2">
-    <span class="badge badge-primary badge-pill">{{i.price}}</span> finCoin
-    </div>
-     <div class="container col-7", >
+        {% load static %}
+
+        {% if i.company_label %}
+
+        <img class="company_picture" src="{{ i.company_label.url}}" alt="{{ i.title }}">
+
+        {% endif %}
+
+        <p class="company_name">
+            {{i.company_name}}
+        </p>
+
         <div class="progress">
 
+        <div class="progressBarGray">
 
-            {% if Coins == "0" %}
-                <div class="progress-bar" style="width: 100%">
-                    {{j}} FinCoin
+               <div class="progressBar" style="
+                width: {{k}};">
+
                 </div>
-            {% else %}
-                <div class="progress-bar bg-success" style="width: {{k}}">
-                    {{j}} finCoin
-                 </div>
-            {% endif %}
 
 
         </div>
+            <p class="little_gray before_u_buy"
+                    style="
+                    text-align: right;">
+                    Для приобретения нужен еще {{ j }} FimCoin
+            </p>
+        </div>
+
+
+
+
+    <div class="price">
+         <div class="FimCoinCountCentered">
+                {{ i.price }}
+            </div>
+            <p class="FimCoinCentered">FimCoin</p>
     </div>
-    </li>
-</ul>
+
+
+
+
+    </div>
+
+       <div class="little_progress">
+
+        <div class="progressBarGray">
+
+               <div class="progressBar" style="
+                width: {{k}};">
+
+                </div>
+
+
+        </div>
+            <p class="little_gray"
+                    style="
+                    text-align: right;
+                    font-size: 10px;
+                    ">
+                    Для приобретения нужен еще {{ j }} FimCoin
+            </p>
+        </div>
 {% endif %}
 {% endfor %}
 
  {% if Coins != "0" %}
-    <a href="allequitiess"><h6 align="right">Смотреть все</h6></a>
+    <a href="allequitiess" class="little_gray"><h6 align="right">Смотреть все</h6></a>
  {% endif %}
 
     {% endif %}
-</table>
-</div>
-
-
-
+ </div>
 
 {% endblock %}
+

@@ -1,19 +1,115 @@
 body {
     background-color: #F7F8FC;
     font-family: 'Mulish', sans-serif;
-    color: green;
+    font-size: 14px;
 }
+
 
 
 .Header {
+
     margin-left: 44px;
-    margin-right: 144px;
+    margin-right: 44px;
+
     display: flex;
+
+    margin-top: 50px;
+    margin-bottom: 20px;
+
 }
+
+
 
 .User_info {
     margin-left: auto;
     margin-right: 0;
+    display: flex;
+    text-align: right;
+
+}
+
+#messageText {
+    margin: 0px;
+}
+
+ .price {
+         display:flex;
+           margin: 0px;
+    }
+
+.verticalLine {
+  border: 1px solid #DFE0EB;
+  width: 0px;
+  margin-left: 17px;
+
+/* grayscale / divider */
+
+}
+
+
+.notUnderlineLink {
+    text-decoration: none;
+    color: black;
+}
+
+.icons  {
+    width: 64px;
+    text-align: center;
+}
+
+.icon {
+    width: 14px;
+    height: 16px;
+    margin-left: 10px;
+}
+
+#notification {
+    margin-top: 14px;
+    width: 14px;
+    height: 16px;
+}
+
+#logout {
+
+    width: 18px;
+    height: 16px;
+}
+
+.username {
+    margin-bottom: 3px;
+    margin-top: 8px;
+    display: flex;
+    font-family: 'Mulish', sans-serif;
+    font-weight: 800;
+    font-style: normal;
+
+    /* or 143% */
+    letter-spacing: 0.2px;
+
+    /* grayscale / black */
+    color: #252733;
+}
+
+.FimCoin {
+    /* Bold 24 (0.3 px) */
+    margin: 0px;
+    margin-left: 23px;
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    text-align: right;
+    letter-spacing: 0.3px;
+}
+
+.FimCoinCount {
+    font-family: 'Mulish', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: right;
+    letter-spacing: 0.3px;
+    margin: 0px
 }
 
 
@@ -22,9 +118,9 @@ body {
     font-style: italic;
     font-weight: 300;
     font-size: 36px;
-    line-height: 45px;
     letter-spacing: 0.3px;
-
+    height: 36px;
+    margin: 0px;
 }
 
 #titlebold {
@@ -37,3 +133,212 @@ body {
 }
 
 
+
+
+.Today_s_trends {
+    background-color: red;
+    margin-left: 44px;
+    margin-right: 44px;
+    background: #FFFFFF;
+/* grayscale / divider */
+
+    border: 1px solid #DFE0EB;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 32px;
+}
+
+.Today_s_trends_block_name {
+
+    font-family: 'Mulish', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    margin: 0px;
+    letter-spacing: 0.4px;
+    color: #252733;
+}
+
+.little_gray {
+
+/* Reg 12 (0.1 px) */
+    margin: 0;
+    font-family: 'Mulish', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+    letter-spacing: 0.1px;
+
+    /* grayscale / gray */
+
+    color: #9FA2B4;
+
+}
+
+.quitiessquitiess {
+    display: flex;
+    margin-bottom: 46px;
+}
+
+.company_picture {
+    width: 90px;
+    height: 45px;
+
+}
+
+.company_name {
+    margin: 0px;
+    font-family: 'Mulish', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    letter-spacing: 0.4px;
+    margin-left: 30px;
+    width: 180px;
+    display: flex;
+
+    /* ---------- */
+
+    height: 45px;
+    align-items: center;
+
+    /* grayscale / black */
+    color: #252733;
+}
+
+.progress {
+  width: 100%;
+  margin: 0px;
+  margin-left: 30px;
+}
+
+.progressBarGray {
+  display: flex;
+
+  width: 100%;
+  background-color: #F7F8FC;
+  border-radius: 5px;
+  border: 1px solid #B6B6B6;
+  height: 30px;
+}
+
+.progressBar {
+  border-radius: 4px;
+  background-color: #B6B6B6;
+}
+
+
+
+
+.FimCoinCountCentered {
+
+    font-family: 'Mulish', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: right;
+    letter-spacing: 0.3px;
+    margin-top: 5px;
+    align-items: center;
+    width: 70px;
+
+}
+
+.FimCoinCentered {
+    margin-left: 10px;
+    align-items: center;
+    font-family: 'Mulish', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    text-align: right;
+    letter-spacing: 0.3px;
+    width: 60px;
+}
+
+
+
+
+.formbuttons{
+    display: block;
+    text-align: center;
+    width: 150px;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+}
+
+#text_to_reg {
+    font-size: 10px;
+}
+
+
+.login_box {
+    text-align: center;
+    width: 300px;
+    background: #FFFFFF;
+/* grayscale / divider */
+
+    border: 1px solid #DFE0EB;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 32px;
+
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+    margin-top: -150px;
+}
+
+#In {
+    margin: 0px;
+    margin-bottom: 25px;
+
+    font-size: 28px;
+
+}
+
+.textforinput {
+    margin: 0px;
+    margin-left: 42px;
+    text-align: left;
+
+}
+
+.formfield {
+    display: block;
+    margin-bottom: 8px;
+
+}
+
+.reg_box {
+
+text-align: center;
+    width: 600px;
+    background: #FFFFFF;
+/* grayscale / divider */
+
+    border: 1px solid #DFE0EB;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 32px;
+
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+    margin-top: -150px;
+
+}

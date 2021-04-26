@@ -1,0 +1,160 @@
+@media (max-width: 768px) {
+   /* показываем кнопку для переключения верхней навигации */
+   .progress {
+    display:none;
+   }
+
+   .Header {
+    margin-left: 8px;
+    margin-right: 8px;
+   }
+
+   .Today_s_trends {
+     margin-left: 8px;
+     margin-right: 8px;
+   }
+
+
+   .little_progress {
+       margin-top: -30px;
+       margin-bottom: 30px;
+       display:block;
+
+   }
+
+
+     .progressBar{
+        height: 10px;
+
+
+   }
+
+   .progressBarGray{
+        height: 10px;
+
+   }
+
+   #coasts {
+           display:none;
+    }
+
+
+}
+
+@media (max-width: 450px) {
+   /* показываем кнопку для переключения верхней навигации */
+
+   .price {
+        display:inline;
+   }
+
+   .FimCoinCountCentered {
+    margin: 0px;
+   }
+
+    .FimCoinCentered {
+        margin-bottom: 0px;
+        margin-top: 0px;
+        font-size: 10px;
+
+
+    }
+
+    .company_name {
+        margin-left: 5px;
+        margin-right: -5px;
+        font-size: 16px;
+
+
+    }
+
+    .Header {
+        display:flex;
+
+
+    }
+
+    #messageText {
+           display:none;
+    }
+
+    .little_progress {
+        margin-top:-40px;
+        margin-bottom:20px;
+   }
+
+
+   #title {
+            margin-left: 6px;
+            margin-top:-12px;
+
+   }
+   .username {
+     display:inline;
+
+   }
+
+   #lilbefore_u_buy {
+      font-size: 8px;
+      color: red;
+   }
+
+
+   .company_picture {
+        height: 32px;
+        width: 62px;
+        margin-left: -20px;
+        margin-right: 5px;
+   }
+
+   #bigscreenusername {
+          display:none;
+   }
+
+   #littlescreenusername {
+    position: absolute;
+    margin-left: 10px;
+    margin-top: -44px;
+
+
+   }
+
+   .notUnderlineLink {
+       margin: 0px;
+       margin-left: -5px;
+
+   }
+
+
+   .icons {
+
+   }
+
+
+
+   .Today_s_trends_block_name_coust_text {
+             display:none;
+
+   }
+}
+
+
+
+
+@media (min-width: 769px) {
+
+    .little_progress {
+       display:none;
+   }
+
+
+
+}
+
+
+@media (min-width: 451px) {
+ #littlescreenusername {
+          display:none;
+   }
+
+}
