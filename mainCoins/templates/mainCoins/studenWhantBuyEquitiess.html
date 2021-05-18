@@ -1,0 +1,73 @@
+{% extends 'mainCoins/base.html' %}
+{% block title %} Приобретиение акций {% endblock %}
+{% block messageline %}
+
+
+<div class="primary" align="right" style="vertical-align: middle;">
+
+
+    {% if request.user.is_authenticated %}
+
+        <p class="username" id="bigscreenusername"> {{request.user.studentsinfo.name}} {{request.user.studentsinfo.second_name}} </p>
+        <p id="messageText">у тебя на счету</p>
+    {% else %}
+
+    <div class="messageText">
+        Ведется разработка
+    </div>
+
+{% endif %}
+
+</div>
+
+{% endblock %}
+
+
+{% block fimcount %}
+
+<div>
+{% if request.user.is_authenticated %}
+
+       {% if Coins == "0" %}
+        <div>
+         <h2 class="FimCoinCount"><span >0</span></h2>
+         <p class = "FimCoin">FimCoin</p>
+        </div>
+        {% endif %}
+
+        {% if Coins != "0" %}
+            <h2 class="FimCoinCount"><span >{{request.user.studentsinfo.coins}}</span></h2>
+            <p class = "FimCoin">FimCoin</p>
+        {% endif %}
+            {% else %}
+        {% endif %}
+
+
+</div>
+
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<div class="container">
+
+    <div  class="Today_s_trends_block_name">
+        <p>Приобритение акции {{company}}</p>
+    </div>
+
+    <div>
+        Действительно хотите приобести акцию компании {{company}} за {{company_price_coins}} FimCoin
+    </div>
+
+    <form action="{% url 'doYouReallyWantToBuyEquitiess' slug=company.slug %}" method="post" class="form">
+        {% csrf_token %}
+        <button class="custom green"type="submit" style="margin-top: 25px;" class="green"> Купить </button>
+        <a href="/"><button class="custom" type="button"> Назад </button></a>
+    </form>
+</div>
+
+{% endblock %}

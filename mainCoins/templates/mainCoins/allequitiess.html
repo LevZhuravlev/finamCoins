@@ -9,7 +9,7 @@
 
     {% if request.user.is_authenticated %}
 
-        <p class="username" id="bigscreenusername"> {{request.user}}</p>
+        <p class="username" id="bigscreenusername"> {{request.user.studentsinfo.name}} {{request.user.studentsinfo.second_name}} </p>
         <p id="messageText">у тебя на счету</p>
     {% else %}
 
@@ -64,7 +64,7 @@
 </p>
 
 <p class="little_gray" style="padding-bottom: 36px;">
-    as of 25 May 2019, 09:41 PM
+    Стоимость акций по состоянию на {{ Today }}
 </p>
     <p class="Today_s_trends_block_name_coust_text" style="
             text-align: right;
@@ -89,15 +89,16 @@
         {% load static %}
 
         {% if i.company_label %}
+        <a href="{{i.company_url}}" style="display: flex">
 
-        <img class="company_picture" src="{{ i.company_label.url}}" alt="{{ i.title }}">
+        <img class="company_picture" src="{{ i.company_label.url}}">
 
         {% endif %}
 
         <p class="company_name">
             {{i.company_name}}
         </p>
-
+        </a>
         <div class="progress">
 
         <div class="progressBarGray">
@@ -123,7 +124,7 @@
          <div class="FimCoinCountCentered">
                 {{ i.price }}
             </div>
-            <p class="FimCoinCentered">FimCoin</p>
+            <p class="FimCoinCentered">Условных единиц</p>
     </div>
 
 
@@ -159,6 +160,7 @@
        <div class="quitiessquitiess">
 
         {% load static %}
+        <a href="{{i.company_url}}" style="display: flex">
 
         {% if i.company_label %}
 
@@ -170,6 +172,7 @@
             {{i.company_name}}
         </p>
 
+        </a>
         <div class="progress">
 
         <div class="progressBarGray">
@@ -185,7 +188,7 @@
             <p class="little_gray before_u_buy"
                     style="
                     text-align: right;">
-                <a href="" style="
+                <a href="{% url 'doYouReallyWantToBuyEquitiess' slug=i.slug %}" style="
                     color:#29CC97;">Приобрести</a>
             </p>
         </div>
@@ -197,7 +200,7 @@
          <div class="FimCoinCountCentered">
                 {{ i.price }}
             </div>
-            <p class="FimCoinCentered">FimCoin</p>
+            <p class="FimCoinCentered">Условных единиц</p>
     </div>
 
 

@@ -1,0 +1,23 @@
+{% extends 'mainCoins/baseAdmin.html' %}
+{% block title %} Удалить {% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="container-header">
+        <h1 class="Today_s_trends_block_name" style="margin-left: 20px;">
+            Удалить учителя
+        </h1>
+    </div>
+
+    <form action="{% url 'fimCoinAdminDeleteTeacher' slug=getTeacherUser.slug%}" method="post" class="form">
+        {% csrf_token %}
+        <p style="margin: 10px;"> Уверены что хотите удалить учителя {{ getTeacherUser.name }} {{ getTeacherUser.second_name }}? </p>
+        <br>
+        <button type="submit" style="color: red; margin-left:10px;"> Удалить </button>
+        <a href="/"><button type="button"> Назад </button></a>
+    </form>
+
+</div>
+
+{% endblock %}

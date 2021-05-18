@@ -1,0 +1,53 @@
+{% extends 'mainCoins/baseAdmin.html' %}
+{% block title %} Информация об {{group}}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div  class="Today_s_trends_block_name">
+        Информация об группе: {{group}}
+    </div>
+
+     <p class="tabel-header-info-text">
+        Возрастная группа
+    </p>
+
+    <p>
+
+        {{group.group_age}} : {{group.get_group_age_display}}
+
+
+    <p class="tabel-header-info-text">
+        Ученики группы
+    </p>
+
+    {% if group.studentsinfo_set.all.count > 0 %}
+    {% for student in group.studentsinfo_set.all %}
+        <a href="{% url 'studentdetailurl' slug=student.slug %}"> <p> {{ student.name }} {{ student.second_name }} </p> </a>
+    {% endfor %}
+
+    {% else %}
+        <p> в группе пока нет учеников </p>
+    {% endif %}
+
+     <p class="tabel-header-info-text">
+        Преподаватели группы
+    </p>
+    {% if group.teachersinfo_set.all.count > 0 %}
+    {% for teacher in group.teachersinfo_set.all %}
+        <a href="{% url 'teacherDetail' slug=teacher.slug %}"> <p> {{ teacher.name }} {{ teacher.second_name }} </p> </a>
+    {% endfor %}
+
+    {% else %}
+        <p> группу пока никто не ведет </p>
+    {% endif %}
+
+    <a href="{% url 'fimCoinAdminEditGroup' slug=group.slug %}" class="notUnderlineLink">
+        <button> Редактировать </button>
+    </a>
+
+
+</div>
+
+{% endblock %}

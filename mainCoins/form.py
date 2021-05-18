@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
+from .models import Groups, StudentsInfo, TeachersInfo
+
 
 class AuthUserForm(AuthenticationForm, forms.ModelForm):
     class Meta:
@@ -13,17 +15,30 @@ class AuthUserForm(AuthenticationForm, forms.ModelForm):
         }
 
 
+class createGroupForm(forms.ModelForm):
 
-
-class RegisterUserForm(forms.ModelForm):
     class Meta:
-        model = User
-        fields = ['username', 'password']
+        model = Groups
+        fields = ['group_name', 'group_age']
 
-    def save(self, commit=True):
-        user = super().save(commit=False)
-        user.set_password(self.cleaned_data["password"])
-        if commit:
-            user.save()
-        return user
 
+class createStudentForm(forms.ModelForm):
+
+    class Meta:
+        model = StudentsInfo
+        fields = ['name', 'second_name', 'father_name', 'date_of_birth', 'coins', 'phone_number', 'group', 'equities']
+
+class changeStudentCoinForm(forms.ModelForm):
+
+    class Meta:
+        model = StudentsInfo
+        fields = ['coins']
+
+class createTeacherForm(forms.ModelForm):
+
+    class Meta:
+        model = TeachersInfo
+        fields = ['name', 'second_name', 'phone_number', 'email', 'group', 'is_super_user']
+
+class addStudentForm(forms.Form):
+    students = forms.ModelMultipleChoiceField(queryset=StudentsInfo.objects.all())

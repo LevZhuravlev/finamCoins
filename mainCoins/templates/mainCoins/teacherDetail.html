@@ -1,0 +1,144 @@
+{% extends 'mainCoins/baseAdmin.html' %}
+{% block title %} Информация {{teacher}}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    {% if teacherDetailSuccess %}
+        {% if who_watching_this == teacher.who_add_me or who_watching_this == teacher.user_name or teacher_watching_this.is_super_user %}
+
+        <div class="successMessage">
+            Преподаватель успешно создан. 🎉 <br>
+            По адресу {{ teacher.email }} был отправлен ник и пароль для входа
+            в систему
+            <br>
+            Ник и пароль сгенерированы автоматически
+            <p class="tabel-header-info-text" style="color: white;">
+            Ник
+         </p>
+
+         <p style="font-style: Italic">
+            {{teacher.user_name}}
+         </p>
+
+
+
+         {% if who_watching_this == teacher.who_add_me or who_watching_this == teacher.user_name or teacher_watching_this.is_super_user %}
+
+            <p class="tabel-header-info-text"  style="color: white;">
+                Пароль
+            </p>
+                     <p style="font-style: Italic">
+                         {{ teacher.password }}
+                     </p>
+
+                {% endif %}
+
+        </div>
+                    {% endif %}
+    {% endif %}
+
+    <div  class="Today_s_trends_block_name">
+        Информация об преподавателе: {{teacher.name}} {{teacher.second_name}}
+    </div>
+
+     <div class="student_info">
+         <p class="tabel-header-info-text">
+            Ник
+         </p>
+
+         <p>
+            {{teacher.user_name}}
+         </p>
+
+
+
+         {% if who_watching_this == teacher.who_add_me or who_watching_this == teacher.user_name or teacher_watching_this.is_super_user %}
+
+            <p class="tabel-header-info-text">
+                Пароль
+            </p>
+
+         <p>{{ teacher.password }}</p>
+         {% endif %}
+
+           <p class="tabel-header-info-text">
+            Кто добавил преподавателя в систему
+         </p>
+         {% if teacher_who_add_me %}
+         <p>
+             <a href="{% url 'teacherDetail' slug=teacher_who_add_me.slug %}"
+             style="color: black; text-decoration: none;">{{teacher_who_add_me.name}} {{teacher_who_add_me.second_name}}</a>
+         </p>
+
+         {% else %}
+         <p> Учитель добавивший в систему этого учителя был удален </p>
+         {% endif %}
+
+
+         <p class="tabel-header-info-text">
+            Почта
+         </p>
+
+         <p>
+             {{teacher.email}}
+         </p>
+
+         <p class="tabel-header-info-text">
+            Номер телефона
+         </p>
+
+            {% if teacher.phone_number %}
+         <p>
+             {{teacher.phone_number}}
+         </p>
+
+         {% else %}
+
+         <p>
+             Не указан
+         </p>
+
+         {% endif %}
+
+         <p class="tabel-header-info-text">
+            Группы
+         </p>
+
+         {% if teacher.group.count > 0 %}
+
+        {% for j in teacher.group.all %}
+            <p class="tabel-header-info-text" style="color: black;"> {{ j }} </p>
+        {% endfor %}
+
+         {% else %}
+            <p> Нет групп </p>
+         {% endif %}
+
+         {% if who_watching_this == teacher.who_add_me or who_watching_this == teacher.user_name or teacher_watching_this.is_super_user %}
+
+
+         {% if teacher.is_super_user %}
+            {% if who_watching_this == teacher.who_add_me or who_watching_this == teacher.user_name or teacher_watching_this.is_super_user %}
+                <p style="margin-top: 25px; font-size: 14px;">
+                    Суперадмин ✅
+                </p>
+            {% endif %}
+         {% endif %}
+         {% endif %}
+
+     </div>
+
+    <div>
+        {% if who_watching_this == teacher.who_add_me or who_watching_this == teacher.user_name or teacher_watching_this.is_super_user %}
+        <br>
+    <a href="{% url 'fimCoinAdminEditTeacher' slug=teacher.slug %}" class="notUnderlineLink">
+        <button> Редактировать </button>
+    </a>
+
+
+    {% endif %}
+             </div>
+</div>
+{% endblock %}

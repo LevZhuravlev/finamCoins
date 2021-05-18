@@ -1,0 +1,136 @@
+{% extends 'mainCoins/base.html' %}
+{% block title %} Информация об {{student}}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div  class="Today_s_trends_block_name">
+        Информация об {{student}}
+        {% if student.second_name %} {{ student.second_name }} {% endif %}
+    </div>
+    <div class="student_info">
+    <p class="tabel-header-info-text">
+        Ник
+    </p>
+
+    <p>
+      {{student.user_name}}
+    </p>
+
+    <p class="tabel-header-info-text">
+        Пароль
+    </p>
+
+    <p>
+      {{student.password}}
+    </p>
+    </div>
+
+    <div class="student_info">
+        <p class="tabel-header-info-text ">
+            ФИО
+        </p>
+        <p>
+             {{ student.second_name }} {{student}} {{student.father_name}}
+        </p>
+    </div>
+
+
+    <div class="student_info">
+    <p class="tabel-header-info-text ">
+        Дата рождения
+    </p>
+            {% if student.date_of_birth %}
+                <p> {{ student.date_of_birth }} </p>
+            {% else %}
+              <p> не указана </p>
+            {% endif %}
+        <p>
+        </p>
+            </div>
+
+
+    <div class="student_info">
+     <p class="tabel-header-info-text ">
+        Номер телефона
+    </p>
+            {% if student.phone_number  %}
+                 <p> {{ student.phone_number }} </p>
+            {% else %}
+              <p> не указан </p>
+            {% endif %}
+        <p>
+
+        </p>
+    </div>
+
+
+    <div class="student_info">
+         <p class="tabel-header-info-text ">
+        Количество FimCoin
+    </p>
+        <p>
+             {{ student.coins }}
+        </p>
+         <p class="tabel-header-info-text ">
+        Группа
+    </p>
+        <p>
+             {{ student.group }}
+        </p>
+    </div>
+
+
+    <div class="student_info">
+             <p class="tabel-header-info-text ">
+        Приобретенные Акции
+    </p>
+        <p>
+
+            {% if equities %}
+                {% for i in equities %}
+                {{ i }}
+                {% endfor %}
+            {% else %}
+              <p> Нет акций </p>
+            {% endif %}
+        </p>
+    </div>
+
+
+    <p class="tabel-header-info-text ">
+        Мои преподаватели
+    </p>
+
+
+    <p>
+        {% for i in teachers %}
+            {{ i.name }} {{ i.second_name }} <br>
+            {{ i.phone_number }} <br>
+            {{ i.email }} <br><br>
+        {% endfor %}
+    </p>
+
+
+    {% if request.user.teachersinfo.is_super_user %}
+    <a href="{% url 'fimCoinAdminEditStudent' slug=student.slug %}" class="notUnderlineLink">
+        <button> Изменить </button>
+    </a>
+
+    {% else %}
+
+    {% for group in request.user.teachersinfo.group.all %}
+    {% if group == student.group or student.group == None %}
+
+    <a href="{% url 'fimCoinAdminEditStudent' slug=student.slug %}" class="notUnderlineLink">
+        <button> Изменить </button>
+    </a>
+
+    {% endif%}
+    {% endfor %}
+
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -21,14 +21,27 @@
 
     <!-- Header -->
 <div class="Header">
+    <img class="logoimage"  src="https://lh3.googleusercontent.com/pHGDxSM3-o0F4ibEV3WDU_f0EVDA3pGhU1CBTBA0a_etO7So9ZZEWq7csOaKoyb5JiSxnS_-9WVmvYTdda3Xl2QfITlCq2Z83UtevV0cLiZspHWsdgepvCkjIXKiFFIHc_Ov6pFBZUQJoiyd5ICvyOwC48xClra7iBgmBqMuYEdec9D8vtV6ef8spylrPe-VUaRD3OATkE6XN1bb9bF8Ywoh_FbF4MBEC2AiS6vk7mJzjGE2UlZy2Q11IwYmdu-ossCD-ELx8SuuAE3Jn5v882rRIFwR6V1jFKR95iEN6dz5W9xXttcGCe__msK7Y11ZxdcV7OkAbjN0w1smbjmqdO8r0NM737Cveswfkt_c65dRsxQFcmJ0Ydup1AixImwtATS7fiOxSusxkd2mEOB-zOhtQsDhO7D-P2LJ2mh1T8wsxE9tfjNS6LpP8jvt7jJ2BdjVc0RcdsHIjpnnFzYtdTqS3e4V7wSrVlBmGS1kQbBKrO5lO7iDETgw8sIhacEUPi3RMc_xOdHgb4J91priBfOC_dorZx3gsfFEl-AmvE5zeO6yGeHtdX339OQNAwaLUEoHoOeUS4y0pp6HKsbE95CcBwsfxcfqOocBUdwnfqvt8-I1TN3fxg5DTyGZZtwll3OMFM5caWtAdg23EwtVZ6gfTnW4fI0XTWl1oG-istBdhz7lEohbJe1flr4Fn0IykmP37wTyuB5tV-j-msw1uKU=w237-h177-no?authuser=6" alt="">
     <p  id="title">
         <a href="/" class="notUnderlineLink">
-                 <span id="titlebold">Fim</span><span id="titlelight">Coins</span> </p>
-
+            <span id="titlebold">Fim</span><span id="titlelight">Coins</span>
         </a>
+</p>
 
     <div class="User_info">
+
+            {% if request.user.is_authenticated %}
+            <a class="notUnderlineLink" href="{% url 'studentdetailurlforstudent' slug=request.user.studentsinfo.slug %}">
                 {% block messageline %} {% endblock %}
+            </a>
+                    {% else %}
+                {% block notaftmessageline %}
+                    <p style="display: inline"> тестовый логин: <b>Евгений</b>  пароль: <b>1234</b></p>
+
+                {% endblock %}
+
+            {% endif %}
+
                 {% block fimcount %} {% endblock %}
 
     </div>
@@ -41,10 +54,9 @@
             <img class ="icon"  id="notification" src="{% static 'icons/Vector.png' %}">
         </a>
         {% endif %}
-        <a href="logout">
+        <a href="{% url 'logout' %}">
             <img class ="icon", id="logout"src="{% static 'icons/logOutIco.png' %}">
         </a>
-
     </div>
 {% endif %}
 
@@ -56,7 +68,7 @@
 
 
 {% if request.user.is_authenticated %}
-        <div class="username" id="littlescreenusername"> {{request.user}}</div>
+        <div class="username" id="littlescreenusername"> {{request.user.studentsinfo.name}} {{request.user.studentsinfo.second_name}} </div>
 {% endif %}
 
 

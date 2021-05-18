@@ -1,0 +1,71 @@
+{% extends 'mainCoins/base.html' %}
+{% block title %} Успех {% endblock %}
+{% block messageline %}
+
+
+<div class="primary" align="right" style="vertical-align: middle;">
+
+
+    {% if request.user.is_authenticated %}
+
+        <p class="username" id="bigscreenusername"> {{request.user.studentsinfo.name}} {{request.user.studentsinfo.second_name}} </p>
+        <p id="messageText">у тебя на счету</p>
+    {% else %}
+
+    <div class="messageText">
+        Ведется разработка
+    </div>
+
+{% endif %}
+
+</div>
+
+{% endblock %}
+
+
+{% block fimcount %}
+
+<div>
+{% if request.user.is_authenticated %}
+
+       {% if Coins == "0" %}
+        <div>
+         <h2 class="FimCoinCount"><span >0</span></h2>
+         <p class = "FimCoin">FimCoin</p>
+        </div>
+        {% endif %}
+
+        {% if Coins != "0" %}
+            <h2 class="FimCoinCount"><span >{{request.user.studentsinfo.coins}}</span></h2>
+            <p class = "FimCoin">FimCoin</p>
+        {% endif %}
+            {% else %}
+        {% endif %}
+
+
+</div>
+
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<div class="container">
+
+    <div  class="Today_s_trends_block_name">
+        <p> Вы успешно приобрели акции {{company}} за {{company_price_coins}} fimCoin 🎉🎉 </p>
+    </div>
+
+    <div>
+        <p> Твоему преподавателю отправилось уведомление о том что ты приобрел акцию </p>
+        <p> В течении дня он свяжется с тобой или твоими родителя и закроет сделку </p>
+        <br>
+    </div>
+
+        <a href="/"><button class="custom" type="button" style="width: 200px;"> На главную  </button></a>
+</div>
+
+{% endblock %}

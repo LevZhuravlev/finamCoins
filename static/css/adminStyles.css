@@ -1,0 +1,449 @@
+body {
+    background-color: #E5E5E5;
+}
+
+.LeftMenu {
+    background-color: #363740;
+    color: white;
+    margin-top: 0px;
+    font-family: 'Mulish', sans-serif;
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 200px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+    padding-left: 13px;
+
+}
+
+.LeftMenu_a {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.LeftMenu_a:hover {
+    color: white;
+    background-color: #A4A6B3;
+}
+
+#admintext {
+    font-style: italic;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    margin-top: -18px;
+}
+
+
+.notUnderlineLink {
+    text-decoration: none;
+    color: white;
+}
+
+#titlebold {
+    font-family: 'Mulish', sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 45px;
+    letter-spacing: 0.3px;
+}
+
+#titlelight {
+    font-family: 'Mulish', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 36px;
+    letter-spacing: 0.3px;
+    height: 36px;
+    margin: 0px;
+}
+
+.main {
+    font-family: 'Mulish', sans-serif;
+    margin-left: 220px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+}
+
+.Header {
+    margin-left: 44px;
+    margin-right: 44px;
+    display: flex;
+}
+
+.User_info {
+    margin-left: auto;
+    margin-right: 0;
+    display: flex;
+    text-align: right;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.verticalLine {
+  border: 1px solid #DFE0EB;
+  width: 0px;
+  margin-left: 17px;
+
+/* grayscale / divider */
+
+}
+
+.icons  {
+    width: 64px;
+    text-align: center;
+}
+
+.icon {
+    width: 14px;
+    height: 16px;
+    margin-left: 10px;
+}
+
+#notification {
+    margin-top: 14px;
+    width: 14px;
+    height: 16px;
+}
+
+#logout {
+    width: 18px;
+    height: 16px;
+
+}
+
+.container {
+    position: absolute;
+    background-color: white;
+    left: 255px;
+    right: 33px;
+    top: 88px;
+
+    border: 1px solid #DFE0EB;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 32px;
+    margin-bottom: 18px;
+}
+
+
+
+.Today_s_trends_block_name {
+
+    font-family: 'Mulish', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    margin: 0px;
+    letter-spacing: 0.4px;
+    color: #252733;
+}
+
+.container-header {
+    display: flex;
+}
+
+
+.Group_name {
+
+    font-family: 'Mulish', sans-serif;
+    font-style: normal;
+    font-size: 19px;
+    line-height: 24px;
+    margin-top: 25px;
+    letter-spacing: 0.4px;
+    color: #252733;
+    color: red;
+}
+
+.tabel-header {
+    display: flex;
+}
+
+.tabel-header-text {
+    font-family: 'Mulish', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.2px;
+
+    /* grayscale / gray */
+
+    color: #9FA2B4;
+}
+
+.first-table-column {
+    width: 200px;
+    margin-right: 32px;
+}
+
+
+.second-table-column {
+    width: 200px;
+    margin-right: 32px;
+}
+
+.third-table-column {
+    width: 200px;
+    margin-right: 62px;
+}
+
+.user-data-row {
+    display: flex;
+    margin-left: -33px;
+    border: 1px solid #DFE0EB;
+    margin-right: -33px;
+    padding-left: 32px;
+}
+
+.studentName {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.studentCoinCount {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+
+/* identical to box height, or 143% */
+    letter-spacing: 0.2px;
+
+/* grayscale / black */
+    color: #252733;
+}
+
+.buttons {
+    width: 36px;
+    height: 20px;
+    border: 1px solid #C4C4C4;
+    background: #C4C4C4;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    color: white;
+    margin-left: 5px;
+}
+
+.fimCoinCount{
+    width: 128px;
+    border: 0px solid #C4C4C4;
+    text-align: center;
+}
+
+#textFimCoin {
+}
+
+.Group_name_background {
+    padding-top: 10px;
+    height: 33px;
+    margin-left: -33px;
+    border: 1px solid #DFE0EB;
+    margin-right: -33px;
+    padding-left: 32px;
+    background-color: gray;
+    color: white
+}
+
+.quitiessquitiess {
+    display: flex;
+    border: 1px solid #DFE0EB;
+    align-items: center;
+    margin-left: -33px;
+    border: 0.5px solid #DFE0EB;
+    margin-right: -33px;
+    padding-left: 32px;
+    height: 100px;
+}
+
+.company_picture {
+    width: 90px;
+    height: 45px;
+    margin-right: 10px;
+}
+
+.company_name {
+    margin: 0px;
+    font-family: 'Mulish', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    letter-spacing: 0.4px;
+    margin-left: 30px;
+    width: 180px;
+    display: flex;
+
+    /* ---------- */
+
+    height: 45px;
+    align-items: center;
+
+    /* grayscale / black */
+    color: #252733;
+}
+
+.equitiessPrice {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    margin:;
+
+/* identical to box height, or 143% */
+    letter-spacing: 0.2px;
+
+/* grayscale / black */
+    color: #252733;
+}
+
+.first-table-column-for-image {
+    width: 90px;
+    margin-right: 10px;
+}
+
+.little_gray {
+
+/* Reg 12 (0.1 px) */
+    margin: 0;
+    font-family: 'Mulish', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+    letter-spacing: 0.1px;
+
+    /* grayscale / gray */
+
+    color: #9FA2B4;
+
+}
+
+
+.header_gray_text {
+
+/* Reg 12 (0.1 px) */
+    margin: 0;
+    font-family: 'Mulish', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+
+    letter-spacing: 0.1px;
+    display: inline;
+
+    /* grayscale / gray */
+    width: 100%;
+    color: #9FA2B4;
+    text-align: right;
+
+
+}
+
+.notUnderlineGrayLink {
+    text-decoration: none;
+    color: #9FA2B4;
+    margin: 0px;
+    padding: 0px;
+}
+
+.student_info {
+padding-bottom: 5px;
+}
+
+.tabel-header-info-text {
+    font-family: 'Mulish', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height */
+    margin-bottom: -15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.2px;
+
+    /* grayscale / gray */
+
+    color: #9FA2B4;
+}
+
+.notUnderlineGrayLink:hover {
+    color: blue;
+}
+
+.form_label {
+    margin: 0px;
+    margin-top: 10px;
+}
+
+.form_error {
+    margin: 0px;
+    margin-top: 10px;
+    color: red;
+    display: inline;
+}
+
+
+.form_field {
+    margin: 0px;
+    margin-bottom: 25px;
+}
+
+.form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.successMessage {
+    background-color: #3CB371;
+    margin-bottom: 15px;
+    padding: 10px;
+    color: white;
+    border-radius: 8px;
+}
+
+
+
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.a_black {
+    text-decoration: none;
+    color: black;
+}
+
+.a_white {
+    text-decoration: none;
+    color: white;
+}
+
+.nav {
+    display: none;
+}

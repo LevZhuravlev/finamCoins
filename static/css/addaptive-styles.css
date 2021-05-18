@@ -45,6 +45,12 @@
            display:none;
     }
 
+    .logoimage {
+        width: 60px;
+        height: 50px;
+        margin: 0px;
+        padding: 0px;
+    }
 
 }
 

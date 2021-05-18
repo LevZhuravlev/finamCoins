@@ -1,0 +1,32 @@
+{% extends 'mainCoins/baseAdmin.html' %}
+{% block title %} Изменить данные {% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="container-header">
+        <h1 class="Today_s_trends_block_name">
+            Изменить данные
+        </h1>
+    </div>
+
+
+    <form action="{% url 'fimCoinAdminEditGroup' slug=group.slug %}" method="post" class="form">
+        {% csrf_token %}
+        {% for field in form %}
+
+            {% if field.errors %}
+                <p class="form_error"> {{ field.error }} </p>
+            {% endif %}
+
+            <p class="form_label"> {{ field.label }} </p>
+            <p class="form_field"> {{ field }} </p>
+        {% endfor %}
+
+        <button type="submit"> Сохранить </button>
+    </form>
+    <a href="{% url 'fimCoinAdminDeleteGroup' slug=group.slug%}" class="notUnderlineGrayLink form_label" style="color: red; margin-top:20px; font-size: 12px; "> Удалить группу </a>
+
+</div>
+
+{% endblock %}

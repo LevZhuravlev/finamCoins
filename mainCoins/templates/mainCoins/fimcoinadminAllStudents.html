@@ -1,0 +1,119 @@
+{% extends 'mainCoins/baseAdmin.html' %}
+{% block title %} FimCoins Все ученики {% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="container-header">
+        <h1 class="Today_s_trends_block_name">
+            Все ученики и группы школы
+        </h1>
+
+          <div class="header_gray_text">
+            <a href="/сreateStudent" class="notUnderlineGrayLink"><span style="font-size: 18px;">+</span> Создать ученика <br></a>
+            <a href="/сreateGroup" class="notUnderlineGrayLink"><span style="font-size: 18px;">+</span> Создать группу <br></a>
+            <a href="/сreateTeacher" class="notUnderlineGrayLink"><span style="font-size: 18px;">+</span> Создать преподователя </a>
+        </div>
+    </div>
+
+    {% for i in Groups %}
+        <a class="a_white" href="{% url 'groupDetail' slug=i.slug %}">
+        <p class="Group_name">
+            <p class="Group_name_background"> {{ i }}</p>
+        </p>
+            </a>
+
+        {% if  i.studentsinfo_set.count > 0 %}
+        {% if Student %}
+
+        <div class="tabel-header">
+            <p class="tabel-header-text first-table-column"> Имя Фамилия </p>
+            <p class="tabel-header-text second-table-column"> Количество FimCoin </p>
+        </div>
+
+        {% for j in Student %}
+            {% if j.group == i  %}
+                <div class="user-data-row">
+                    <a href="{% url 'studentdetailurl' slug=j.slug %}" class="notUnderlineGrayLink" style="color: black;">
+                    {% if j.second_name %}
+                    <p class="first-table-column studentName"> {{ j.name }} {{ j.second_name }} </p>
+                    {% else %}
+                    <p class="first-table-column studentName"> {{ j.name }}</p>
+                    {% endif %}
+                    </a>
+                    <div class="second-table-column studentCoinCount">
+
+                            {% if request.user.teachersinfo.is_super_user %}
+                            <a href="{% url 'addFimCoins' slug=j.slug %}" class="a_black">
+                                <p class="fimCoinCount"> {{j.coins}} FimCoin </p>
+                            </a>
+
+                            {% else %}
+
+                                <p class="fimCoinCount"> {{j.coins}} FimCoin </p>
+
+                            {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+
+        {% endfor%}
+
+    {% endif %}
+            {% else %}
+             <p class="first-table-column studentName"> В этой группе пока нет учеников </p>
+            {% endif %}
+
+    {% endfor%}
+
+
+    <!-- Ученики без группы -->
+
+    {% if isAllStudentInGroup %}
+    {% else %}
+    <p class="Group_name">
+       <p class="Group_name_background"> Ученики без группы </p>
+    </p>
+
+     <div class="tabel-header">
+            <p class="tabel-header-text first-table-column"> Имя Фамилия </p>
+            <p class="tabel-header-text second-table-column"> Количество FimCoin </p>
+     </div>
+
+    {% for j in Student %}
+            {% if j.group %}
+            {% else %}
+                <div class="user-data-row">
+                    <a href="{% url 'studentdetailurl' slug=j.slug %}" class="notUnderlineGrayLink" style="color: black;">
+                    {% if j.second_name %}
+                    <p class="first-table-column studentName"> {{ j.name }} {{ j.second_name }} </p>
+                    {% else %}
+                    <p class="first-table-column studentName"> {{ j.name }}</p>
+                    {% endif %}
+                    </a>
+                    <div class="second-table-column studentCoinCount">
+
+                            {% if request.user.teachersinfo.is_super_user %}
+                            <a href="{% url 'addFimCoins' slug=j.slug %}" class="a_black">
+                                <p class="fimCoinCount"> {{j.coins}} FimCoin </p>
+                            </a>
+
+                            {% else %}
+
+                                <p class="fimCoinCount"> {{j.coins}} FimCoin </p>
+
+                            {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor%}
+
+
+    {% endif %}
+
+
+
+
+</div>
+
+{% endblock %}

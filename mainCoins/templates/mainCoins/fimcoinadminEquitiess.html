@@ -1,0 +1,58 @@
+{% extends 'mainCoins/baseAdmin.html' %}
+{% block title %} Добавить студента {% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="container-header">
+        <h1 class="Today_s_trends_block_name">
+            Акции
+
+        </h1>
+
+
+    </div>
+
+            <p class="little_gray" style = "margin-top: 10px; margin-bottom: 25px">
+                Стоимость FimCoin по состоянию на {{ Today }} составляет {{ Current_coin_price }} рублей
+            </p>
+
+        <div class="tabel-header">
+            <p class="tabel-header-text first-table-column"> Компания </p>
+                        <p class="tabel-header-text first-table-column-for-image"></p>
+
+            <p class="tabel-header-text second-table-column"> Стоимость лота </p>
+        </div>
+
+{% for i in Equities %}
+
+    <div class="quitiessquitiess" >
+        <a href="{{i.company_url}}" style="display: flex">
+        {% load static %}
+        {% if i.company_label_url %}
+
+        <img class="company_picture" src="{{ i.company_label.url}}">
+
+
+        {% elif i.company_label %}
+
+        <img class="company_picture" src="{{ i.company_label}}" alt="{{ i.title }}">
+
+        {% else %}
+
+        {% endif %}
+
+        <p class="studentName first-table-column">
+             {{i.company_name}}
+        </p>
+
+
+        <div >
+            {{ i.price }} Рублей
+            <p class="little_gray" > Обновлено {{ i.date_of_last_update }} </p>
+        </div>
+             </a>
+    </div>
+
+{% endfor %}
+{% endblock %}

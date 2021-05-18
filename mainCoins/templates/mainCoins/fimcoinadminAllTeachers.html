@@ -1,0 +1,63 @@
+{% extends 'mainCoins/baseAdmin.html' %}
+{% block title %} FimCoins Все учителя {% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="container-header">
+        <h1 class="Today_s_trends_block_name">
+            Все учителя школы
+        </h1>
+
+          <div class="header_gray_text">
+            <a href="/сreateStudent" class="notUnderlineGrayLink"><span style="font-size: 18px;">+</span> Создать ученика <br></a>
+            <a href="/сreateGroup" class="notUnderlineGrayLink"><span style="font-size: 18px;">+</span> Создать группу <br></a>
+            <a href="/сreateTeacher" class="notUnderlineGrayLink"><span style="font-size: 18px;">+</span> Создать преподователя </a>
+        </div>
+    </div>
+
+        <div class="tabel-header">
+            <p class="tabel-header-text first-table-column"> Имя Фамилия </p>
+            <p class="tabel-header-text second-table-column"> Группы </p>
+            {% if request.user.teachersinfo.is_super_user %}
+            <p class="tabel-header-text third-table-column" style="width: 80px"> Суперадмин </p>
+            {% endif %}
+
+        </div>
+
+
+    {% for i in Teachers %}
+
+                <div class="user-data-row">
+                    <a href="{% url 'teacherDetail' slug=i.slug %}" class="" style="color: black; text-decoration: none;">
+                    <p class="first-table-column studentName">
+                        {{ i.name }}
+                        {{ i.second_name }}
+                        {% if request.user.teachersinfo.email == i.email %}
+                            <span style="color: #00CED1;"> (Вы) </span>
+                        {% endif %}
+                    </p>
+                    </a>
+                    <div class="second-table-column">
+                        {% for j in i.group.all %}
+                            <p class="studentName"> {{ j }} </p>
+                        {% endfor %}
+                    </div>
+
+                        {% if request.user.teachersinfo.is_super_user %}
+                            <div class="third-table-column" style="width: 80px">
+                                <p class="studentName ">
+                                    {% if i.is_super_user %}
+                                        <p style="text-align: center; font-size: 14px; height: 20px; vertical-align: top;">✅</p>
+                                    {% endif%}
+                                </p>
+                            </div>
+                        {% endif %}
+
+                </div>
+
+    {% endfor%}
+
+</div>
+
+{% endblock %}

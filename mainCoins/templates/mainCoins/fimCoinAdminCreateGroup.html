@@ -1,0 +1,33 @@
+{% extends 'mainCoins/baseAdmin.html' %}
+{% block title %} Создать группу {% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="container-header">
+        <h1 class="Today_s_trends_block_name">
+            Создать группу
+        </h1>
+    </div>
+
+    <form action="{% url 'fimCoinAdminCreateGroup' %}" method="post" class="form">
+        {% csrf_token %}
+        {% for field in createGroup %}
+
+            {% if field.errors %}
+                <p class="form_error"> {{ field.error }} </p>
+            {% endif %}
+
+            <p class="form_label"> {{ field.label }} </p>
+            <p class="form_field"> {{ field }} </p>
+        {% endfor %}
+
+        <button type="submit"> Добавить группу </button>
+    </form>
+
+
+
+</div>
+
+
+{% endblock %}

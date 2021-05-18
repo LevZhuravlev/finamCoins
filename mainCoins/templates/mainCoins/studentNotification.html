@@ -1,0 +1,23 @@
+{% extends 'mainCoins/baseAdmin.html' %}
+{% block title %} Информация об {{student}}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div  class="Today_s_trends_block_name">
+        Уведомления от {{student}} {{ student.second_name }}
+    </div>
+    <div class="student_info">
+    <p class="tabel-header-info-text">
+        Текст
+    </p>
+
+    <p>
+      {{student.notifications}}
+    </p>
+
+    </div>
+</div>
+
+{% endblock %}

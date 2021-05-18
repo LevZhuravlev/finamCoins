@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mainCoins'
+    'mainCoins',
 ]
 
 MIDDLEWARE = [
@@ -118,7 +118,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # heroku config:set DISABLE_COLLECTSTATIC=1
-
 
 
 import os

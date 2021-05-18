@@ -1,0 +1,27 @@
+{% extends 'mainCoins/baseAdmin.html' %}
+{% block title %} Добавить {{student.name}}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div  class="Today_s_trends_block_name">
+        Изменить количество fimCoin для {{student.name}} {{student.second_name}}
+    </div>
+    <form action="{% url 'addFimCoins' slug=student.slug%}" method="post" class="form">
+
+        {% csrf_token %}
+        {% for field in form %}
+
+            {% if field.errors %}
+                <p class="form_error"> {{ field.errors}} </p>
+            {% endif %}
+                <p class="form_label"> {{ field.label }} </p>
+                <p class="form_field"> {{ field }} </p>
+
+        {% endfor %}
+
+        <button type="submit"> Сохранить </button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'mainCoins/baseAdmin.html' %}
+{% block title %} Создать учителя {% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="container-header">
+        <h1 class="Today_s_trends_block_name">
+            Создать учителя
+        </h1>
+    </div>
+
+    <form action="{% url 'fimCoinAdminCreateTeacher' %}" method="post" class="form">
+        {% csrf_token %}
+
+        {% if request.user.teachersinfo.is_super_user %}
+
+        {% for field in createTeacherForm %}
+
+
+
+
+            {% if field.label == 'Суперадмин'%}
+                    <p class="form_label"> {{ field.label }} {{ field }} </p>
+                    <p class="little_gray" style="width: 250px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;">
+
+                        Если выбрать этот пункт, то данный преподаватель
+                        будет иметь полный доступ к редактированию данных всех
+                        учеников и преподавателей. Иначе доступ к редактированию
+                        будет только его учеников.
+
+                    </p>
+                {% else%}
+                <p class="form_label"> {{ field.label }} </p>
+                  {% if field.errors %}
+                <p class="form_error"> {{ field.errors}} </p>
+                    {% endif %}
+
+                <p class="form_field"> {{ field }} </p>
+                {% endif %}
+
+
+        {% endfor %}
+
+        {% else %}
+            {% for field in createTeacherForm %}
+
+                  {% if field.errors %}
+                <p class="form_error"> {{ field.error }} </p>
+            {% endif %}
+
+                {% if field.label == 'Суперадмин'%}
+                {% else%}
+                <p class="form_label"> {{ field.label }} </p>
+                <p class="form_field"> {{ field }} </p>
+                {% endif %}
+        {% endfor %}
+
+        {% endif %}
+
+        <button type="submit"> Зарегестрировать </button>
+    </form>
+    </div>
+
+
+{% endblock %}

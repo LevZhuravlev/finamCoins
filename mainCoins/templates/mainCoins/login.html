@@ -14,9 +14,8 @@
 
 
 
-
 {% block content %}
-<div class="login_box">
+<div class="login_box" >
 
     <form id="add_form" method="post" class="form">
         {% csrf_token %}
@@ -41,12 +40,10 @@
 
         <button type="submit" class="formbuttons" >Войти</button>
 
-        <a href="registration", class="formbuttons", id="text_to_reg">
-            Нет аккаунта? Регистрация
-        </a>
 
     </form>
 </div>
+
 
 
 
